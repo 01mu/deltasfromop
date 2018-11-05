@@ -1,0 +1,140 @@
+<div class="col-sm-3">
+<div class="header">
+    Deltas From OP
+</div>
+<div class="smallheader">
+    Search
+</div>
+<center>
+    <form action="/action_page.php" metdhod="get">
+        <input type="text" name="query"><br>
+        <input type="submit" value="Search">
+    </form>
+</center>
+<div class="smallheader">
+    Options
+</div>
+<form action="/" metdhod="get">
+    <div class="stats">
+        <b>Limit</b>
+        <fieldset id="limit">
+            <input type="radio" value="50" name="limit">50
+            <input type="radio" value="100" name="limit">100
+            <input type="radio" value="250" name="limit">250
+        </fieldset>
+    </div>
+    <div class="stats">
+        <b>Order</b>
+        <fieldset id="order">
+            <input type="radio" value="comments" name="order">Comments
+            <input type="radio" value="date" name="order">Date
+            <input type="radio" value="score" name="order">Score
+        </fieldset>
+    </div>
+    <div class="stats">
+        <b>Sort</b>
+        <fieldset id="sort">
+            <input type="radio" value="asc" name="sort">Ascending
+            <input type="radio" value="desc" name="sort">Desceding
+        </fieldset>
+    </div>
+    <center>
+        <input type="submit" value="Update">
+    </center>
+</form>
+<div class="smallheader">
+    Stats
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-4">
+            <b>Posts</b><br>
+            <%= response[2][0]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            <b>Cmts</b><br>
+            <%= response[2][11]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            <b>Score</b><br>
+            <%= response[2][6]['value'] %>
+        </div>
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-4">
+            Δ<br>
+            <%= response[2][2]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            Δ<br>
+            <%= response[2][13]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            Δ<br>
+            <%= response[2][8]['value'] %>
+        </div>
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-4">
+            X<br>
+            <%= response[2][1]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            X<br>
+            <%= response[2][12]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            X<br>
+            <%= response[2][7]['value'] %>
+        </div>
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-4">
+            Δ%<br>
+            <%= response[2][4]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            Δ%<br>
+            <%= response[2][15]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            Δ%<br>
+            <%= response[2][10]['value'] %>
+        </div>
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-4">
+            X%<br>
+            <%= response[2][3]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            X%<br>
+            <%= response[2][14]['value'] %>
+        </div>
+        <div class="col-sm-4">
+            X%<br>
+            <%= response[2][9]['value'] %>
+        </div>
+    </div>
+</div>
+<div class="stats">
+    <div class="row">
+        <div class="col-sm-6">
+            First Update<br>
+            <%= response[2][16]['input'] %>
+        </div>
+        <div class="col-sm-6">
+            Last Update<br>
+            <%= response[2][5]['value'] %>
+        </div>
+    </div>
+</div>
+</div>

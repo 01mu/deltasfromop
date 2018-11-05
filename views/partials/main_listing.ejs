@@ -1,0 +1,34 @@
+<div class="col-sm-9">
+    <div class="smallheader">
+        Posts
+    </div>
+    <% for (value in response[1]) {
+        res = response[1][value]
+
+        if(res['delta'] == 1) { %>
+            <div class="post-true">
+        <% } else { %>
+            <div class="post-false">
+        <% } %>
+
+        <a href="<%= res['url'].toString() %>"><%= res['title'] %></a>
+
+        <br>
+
+        <div class="small">
+            Comments: <%= res['comments'].toString() %> |
+            Score: <%= res['score'].toString() %> |
+            <%= res['date'].toString() %>
+            <div class="right">
+                <a href="<%= res['url'] %>">[Link]</a>
+            </div>
+
+            <% if(res['delta'] == 1) { %>
+                | Δ
+            <% } else { %>
+                | X
+            <% }  %>
+        </div>
+        </div>
+    <% } %>
+</div>
