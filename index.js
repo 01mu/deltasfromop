@@ -30,8 +30,6 @@ app.get('/', function (req, res, next) {
         limit = '50';
     }
 
-    console.log('sort ' + sort + ' order ' + order + ' limit ' + limit);
-
     var end = 'get_posts.php?limit=' + limit +
         '&order=' + order + '&start=0&sort=' + sort;
 
