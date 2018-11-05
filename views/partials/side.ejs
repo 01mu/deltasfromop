@@ -8,39 +8,53 @@
 <center>
     <form action="/action_page.php" metdhod="get">
         <input type="text" name="query"><br>
-        <input type="submit" value="Search">
+        <input style="margin-top: 10px;" type="submit" value="Search">
     </form>
 </center>
 <div class="smallheader">
     Options
 </div>
 <form action="/" metdhod="get">
-    <div class="stats">
-        <b>Limit</b>
-        <fieldset id="limit">
-            <input type="radio" value="50" name="limit">50
-            <input type="radio" value="100" name="limit">100
-            <input type="radio" value="250" name="limit">250
-        </fieldset>
+    <div class="row">
+        <div class="col-sm-6">
+        <div class="options">
+            <b>Limit</b>
+            <fieldset id="limit">
+                <input type="radio" value="50" name="limit">&nbsp;50<br>
+                <input type="radio" value="100" name="limit">&nbsp;100<br>
+                <input type="radio" value="250" name="limit">&nbsp;250
+            </fieldset>
+        </div>
+        </div>
+        <div class="col-sm-6">
+        <div class="options">
+            <b>Order</b>
+            <fieldset id="order">
+                <input type="radio" value="comments" name="order">&nbsp;Comments<br>
+                <input type="radio" value="date" name="order">&nbsp;Date<br>
+                <input type="radio" value="score" name="order">&nbsp;Score
+            </fieldset>
+        </div>
+        </div>
     </div>
-    <div class="stats">
-        <b>Order</b>
-        <fieldset id="order">
-            <input type="radio" value="comments" name="order">Comments
-            <input type="radio" value="date" name="order">Date
-            <input type="radio" value="score" name="order">Score
-        </fieldset>
+
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="options">
+                <b>Sort</b>
+                <fieldset id="sort">
+                    <input type="radio" value="asc" name="sort">Ascending<br>
+                    <input type="radio" value="desc" name="sort">Desceding
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <center>
+                <input style="margin-top: 5px;" type="submit" value="Update">
+            </center>
+        </div>
     </div>
-    <div class="stats">
-        <b>Sort</b>
-        <fieldset id="sort">
-            <input type="radio" value="asc" name="sort">Ascending
-            <input type="radio" value="desc" name="sort">Desceding
-        </fieldset>
-    </div>
-    <center>
-        <input type="submit" value="Update">
-    </center>
 </form>
 <div class="smallheader">
     Stats
@@ -61,6 +75,9 @@
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="stats">
     <div class="row">
         <div class="col-sm-4">
@@ -77,6 +94,9 @@
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="stats">
     <div class="row">
         <div class="col-sm-4">
@@ -93,6 +113,9 @@
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="stats">
     <div class="row">
         <div class="col-sm-4">
@@ -109,6 +132,9 @@
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="stats">
     <div class="row">
         <div class="col-sm-4">
@@ -125,6 +151,9 @@
         </div>
     </div>
 </div>
+
+<br>
+
 <div class="stats">
     <div class="row">
         <div class="col-sm-6">

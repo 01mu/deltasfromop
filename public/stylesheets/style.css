@@ -22,7 +22,7 @@ body
     margin: 20px;
  }
 
-.post-true, .post-false, .stats
+.post-true, .post-false
 {
     background-color: #ffffff;
     font-size: 13px;
@@ -35,6 +35,12 @@ body
     text-overflow: ellipsis;
 }
 
+.options
+{
+
+
+}
+
 .post-true
 {
 
@@ -45,7 +51,7 @@ body
 
 }
 
-.post-true:hover, .post-false:hover, .stats:hover
+.post-true:hover, .post-false:hover
 {
     background-color: #eef7ed;
 }
