@@ -63,6 +63,11 @@ body
     border-bottom-style: solid;
 }
 
+a:visited, a
+{
+    color: black;
+}
+
 .right
 {
     float:right;
@@ -75,6 +80,7 @@ body
 
 .header, .smallheader
 {
+    color: black;
     background-color: #e2edff;
     font-weight: bold;
     border-style: solid;
