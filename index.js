@@ -25,6 +25,18 @@ app.get('/view/:id?', function (req, res, next) {
     }
 });
 
+app.get('/search', function (req, res, next) {
+    var query = req.query.query;
+    var end = 'search_posts.php?query=' + query + '&limit=50&start=0';
+    var url = baseURL + end;
+
+    if(query == null) {
+        res.render('pages/not_found');
+    } else {
+        showResult(url, res, {}, 'pages/index');
+    }
+});
+
 app.get('/', function (req, res, next) {
     var sort = req.query.sort;
     var order = req.query.order;
@@ -64,7 +76,7 @@ function showResultID(url, res, params, page) {
 
         resp.on('end', () => {
             var response = JSON.parse(data)[0].Response;
-
+            console.log(JSON.parse(data));
             if(response !== 'Error') {
                 res.render(page, {response: JSON.parse(data), params: params});
             } else {
@@ -86,6 +98,7 @@ function showResult(url, res, params, page) {
       });
 
       resp.on('end', () => {
+          //console.log(JSON.parse(data));
         res.render(page, {response: JSON.parse(data), params: params});
       });
 
