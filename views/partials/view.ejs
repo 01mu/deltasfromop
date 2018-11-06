@@ -1,8 +1,9 @@
+<% res = response[1][0] %>
+
 <div class="col-sm-9">
     <div class="smallheader">
         <%= res['title'] %>
     </div>
-    <% res = response[1][0] %>
 
     <div class="post-view">
 
@@ -11,7 +12,7 @@
     <br><br>
 
     <div class="small">
-        Comments: <%= res['comments'].toString() %> |
+        Comments: <%= res['id'].toString() %> |
         Score: <%= res['score'].toString() %> |
         <%= res['date'].toString() %>
         <div class="right">
