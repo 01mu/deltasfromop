@@ -1,0 +1,28 @@
+<div class="col-sm-9">
+    <div class="smallheader">
+        <%= res['title'] %>
+    </div>
+    <% res = response[1][0] %>
+
+    <div class="post-view">
+
+    <%- res['op'] %>
+
+    <br><br>
+
+    <div class="small">
+        Comments: <%= res['comments'].toString() %> |
+        Score: <%= res['score'].toString() %> |
+        <%= res['date'].toString() %>
+        <div class="right">
+            <a href="<%= res['url'] %>">[Link]</a>
+        </div>
+
+        <% if(res['delta'] == 1) { %>
+            | Δ
+        <% } else { %>
+            | X
+        <% }  %>
+    </div>
+    </div>
+</div>

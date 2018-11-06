@@ -22,6 +22,16 @@ body
     margin: 20px;
  }
 
+.post-view
+{
+    background-color: #ffffff;
+    font-size: 13px;
+    border: 1px;
+    border-style: solid;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
 .post-true, .post-false, .stats
 {
     background-color: #ffffff;
@@ -53,7 +63,7 @@ body
 
 }
 
-.post-true:hover, .post-false:hover, .stats:hover
+.post-true:hover, .post-false:hover, .stats:hover, .options:hover
 {
     background-color: #eef7ed;
 }
