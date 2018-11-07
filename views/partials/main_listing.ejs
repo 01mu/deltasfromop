@@ -16,18 +16,18 @@
         <br>
 
         <div class="small">
-            Comments: <%= res['comments'].toString() %> |
+            <% if(res['delta'] == 1) { %>
+                <img src="/true.png" alt="Smiley face" height="16" width="16">
+            <% } else { %>
+                <img src="/false.png" alt="Smiley face" height="16" width="16">
+            <% }  %>
+
+            | Comments: <%= res['comments'].toString() %> |
             Score: <%= res['score'].toString() %> |
             <%= res['date'].toString() %>
             <div class="right">
                 <a href="<%= res['url'] %>">[Link]</a>
             </div>
-
-            <% if(res['delta'] == 1) { %>
-                | Δ
-            <% } else { %>
-                | X
-            <% }  %>
         </div>
         </div>
     <% } %>
