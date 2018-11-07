@@ -65,7 +65,7 @@ body
 
 .post-true:hover, .post-false:hover, .stats:hover, .options:hover
 {
-    background-color: #eef7ed;
+    background-color: #e6ecf7;
 }
 
 .title, .footer
@@ -99,7 +99,7 @@ a:visited, a
 .header, .smallheader
 {
     color: black;
-    background-color: #e2edff;
+    background-color: #ece6f7;
     font-weight: bold;
     border-style: solid;
     border-width: 1px;
