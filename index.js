@@ -1,18 +1,38 @@
+/*
+ * deltasfromop.herokuapp.com
+ * github.com/01mu
+ */
+
+/*
+ * node
+ */
 const express = require('express');
 const https = require('https');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const PORT = process.env.PORT || 5000;
+
 const app = express();
 
+/*
+ * base url
+ */
 const baseURL = 'https://smallfolio.bitnamiapp.com/deltasfromop/';
 
+/*
+ * express
+ */
 app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+
+/*
+ * get specific id post
+ */
 app.get('/view/:id?', function (req, res, next) {
     var id = req.params.id;
     var end = 'single.php?id=' + id;
@@ -25,18 +45,9 @@ app.get('/view/:id?', function (req, res, next) {
     }
 });
 
-app.get('/search', function (req, res, next) {
-    var query = req.query.query;
-    var end = 'search_posts.php?query=' + query + '&limit=50&start=0';
-    var url = baseURL + end;
-
-    if(query == null) {
-        res.render('pages/not_found');
-    } else {
-        showResult(url, res, {}, 'pages/index');
-    }
-});
-
+/*
+ * home
+ */
 app.get('/', function (req, res, next) {
     var sort = req.query.sort;
     var order = req.query.order;
@@ -59,13 +70,35 @@ app.get('/', function (req, res, next) {
 
     var url = baseURL + end;
     var params = {limit: limit, order: order, start: 0, sort: sort};
+
     showResult(url, res, params, 'pages/index');
 });
 
+/*
+ * search
+ */
+app.get('/search', function (req, res, next) {
+    var query = req.query.query;
+    var end = 'search_posts.php?query=' + query + '&limit=50&start=0';
+    var url = baseURL + end;
+
+    if(query == null) {
+        res.render('pages/not_found');
+    } else {
+        showResult(url, res, {}, 'pages/index');
+    }
+});
+
+/*
+ * no page
+ */
 app.get('*', function(req, res) {
     res.render('pages/not_found');
 });
 
+/*
+ * get from id
+ */
 function showResultID(url, res, params, page) {
     https.get(url, (resp) => {
         let data = '';
@@ -76,7 +109,7 @@ function showResultID(url, res, params, page) {
 
         resp.on('end', () => {
             var response = JSON.parse(data)[0].Response;
-            console.log(JSON.parse(data));
+
             if(response !== 'Error') {
                 res.render(page, {response: JSON.parse(data), params: params});
             } else {
@@ -89,20 +122,22 @@ function showResultID(url, res, params, page) {
     });
 }
 
+/*
+ * get from home page
+ */
 function showResult(url, res, params, page) {
     https.get(url, (resp) => {
-      let data = '';
+        let data = '';
 
-      resp.on('data', (chunk) => {
-        data += chunk;
-      });
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
 
-      resp.on('end', () => {
-          //console.log(JSON.parse(data));
-        res.render(page, {response: JSON.parse(data), params: params});
-      });
+        resp.on('end', () => {
+            res.render(page, {response: JSON.parse(data), params: params});
+        });
 
     }).on("error", (err) => {
-      console.log("Error: " + err.message);
+        console.log("Error: " + err.message);
     });
 }
