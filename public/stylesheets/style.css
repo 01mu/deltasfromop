@@ -5,9 +5,7 @@ body
 
 .body
 {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #000000;
+    border: 1px solid #ccc;
     padding: 20px;
     background-color: #fafafa;
     white-space: wrap;
@@ -26,8 +24,7 @@ body
 {
     background-color: #ffffff;
     font-size: 13px;
-    border: 1px;
-    border-style: solid;
+    border: 1px solid #ccc;
     margin-bottom: 5px;
     padding: 10px;
 
@@ -37,8 +34,7 @@ body
 {
     background-color: #ffffff;
     font-size: 13px;
-    border: 1px;
-    border-style: solid;
+    border: 1px solid #ccc;
     margin-bottom: 5px;
     padding: 10px;
     white-space: nowrap;
@@ -48,10 +44,10 @@ body
 
 .options
 {
+    font-size: 13px;
     padding: 10px;
     background-color: #ffffff;
-    border: 1px;
-    border-style: solid;
+    border: 1px solid #ccc;
 }
 
 .post-true
@@ -78,13 +74,18 @@ body
 .title
 {
     padding: 75px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border: 1px solid #ccc;
 }
 
 a:visited, a
 {
     color: black;
+}
+
+a:hover
+{
+    color: #000000;
+    text-decoration: none;
 }
 
 .right
@@ -102,8 +103,7 @@ a:visited, a
     color: black;
     background-color: #e2edff;
     font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #ccc;
     text-align: center;
 }
 
