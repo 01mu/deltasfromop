@@ -1,5 +1,5 @@
 # Deltas From OP
-
+Displays user post information and statistics from reddit's /r/changemyview. Uses [cmv-archiver](https://www.github.com/01mu/cmv-archiver) to store threads and comments.
 ## Screenshots
 | home | search | post |
 | - | - | - |
