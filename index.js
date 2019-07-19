@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-
+//
 const resInclude = require('./res');
 
 const baseURL = 'https://smallfolio.bitnamiapp.com/deltasfromop/';
@@ -35,7 +35,6 @@ app.get('/view/:id?', function (req, res, next) {
 });
 
 app.get('/', function (req, res, next) {
-
     var sort = req.query.sort;
     var order = req.query.order;
     var limit = req.query.limit;
