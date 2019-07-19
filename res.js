@@ -20,9 +20,8 @@ function showResultID(https, url, res, params, page) {
                 res.render('pages/not_found');
             }
         });
-
-        }).on("error", (err) => {
-            console.log("Error: " + err.message);
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
     });
 }
 
@@ -37,7 +36,6 @@ function showResult(https, url, res, params, page) {
         resp.on('end', () => {
             res.render(page, {response: JSON.parse(data), params: params});
         });
-
     }).on("error", (err) => {
         console.log("Error: " + err.message);
     });
