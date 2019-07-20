@@ -27,14 +27,7 @@ function showResultID(https, url, res, params, page) {
 }
 
 function showResult(https, url, res, params, page, request) {
-
-    request(url, { json: true }, (err, res, body) => {
-      if (err) { return console.log(err); }
-      console.log(body.url);
-      console.log(body.explanation);
-    });
-
-    /*https.get(url, (resp) => {
+    https.get(url, (resp) => {
         let data = '';
 
         resp.on('data', (chunk) => {
@@ -47,7 +40,7 @@ function showResult(https, url, res, params, page, request) {
 
     }).on("error", (err) => {
         console.log("Error: " + err.message);
-    });*/
+    });
 }
 
 module.exports.showResult = showResult;

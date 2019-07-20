@@ -79,7 +79,7 @@ app.get('/', function (req, res, next) {
         console.log(error);
       });
 
-    //resInclude.showResult(https, url, res, params, 'pages/index', request);
+   // resInclude.showResult(https, url, res, params, 'pages/index', request);
 });
 
 app.get('/search', function (req, res, next) {
