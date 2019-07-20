@@ -65,7 +65,7 @@ app.get('/', function (req, res, next) {
     var url = baseURL + end;
     var params = {limit: limit, order: order, start: 0, sort: sort};
 
-    request(url, { json: true}, (err, res2, body) => {
+    request(url, { json: true, secureProtocol: 'TLSv1_2_method'}, (err, res2, body) => {
         if (err) { return console.log(err); }
 
         res.render('pages/index', {response: body, params: params});
