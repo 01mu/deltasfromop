@@ -20,13 +20,21 @@ function showResultID(https, url, res, params, page) {
                 res.render('pages/not_found');
             }
         });
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
+
+        }).on("error", (err) => {
+            console.log("Error: " + err.message);
     });
 }
 
-function showResult(https, url, res, params, page) {
-    https.get(url, (resp) => {
+function showResult(https, url, res, params, page, request) {
+
+    request(url, { json: true }, (err, res, body) => {
+      if (err) { return console.log(err); }
+      console.log(body.url);
+      console.log(body.explanation);
+    });
+
+    /*https.get(url, (resp) => {
         let data = '';
 
         resp.on('data', (chunk) => {
@@ -36,9 +44,10 @@ function showResult(https, url, res, params, page) {
         resp.on('end', () => {
             res.render(page, {response: JSON.parse(data), params: params});
         });
+
     }).on("error", (err) => {
         console.log("Error: " + err.message);
-    });
+    });*/
 }
 
 module.exports.showResult = showResult;

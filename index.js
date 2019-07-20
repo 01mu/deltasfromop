@@ -8,19 +8,27 @@ const https = require('https');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const request = require('request');
+const axios = require('axios');
+
+
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-//
+
 const resInclude = require('./res');
 
 const baseURL = 'https://smallfolio.bitnamiapp.com/deltasfromop/';
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
 
 app.get('/view/:id?', function (req, res, next) {
     var id = req.params.id;
@@ -56,8 +64,22 @@ app.get('/', function (req, res, next) {
 
     var url = baseURL + end;
     var params = {limit: limit, order: order, start: 0, sort: sort};
+/*
+    request(url, { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
 
-    resInclude.showResult(https, url, res, params, 'pages/index');
+        res.render('pages/index', {response: body, params: params});
+    });*/
+
+    axios.get(url)
+      .then(response => {
+        res.render('pages/index', {response: response.data, params: params});
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    //resInclude.showResult(https, url, res, params, 'pages/index', request);
 });
 
 app.get('/search', function (req, res, next) {
