@@ -64,20 +64,20 @@ app.get('/', function (req, res, next) {
 
     var url = baseURL + end;
     var params = {limit: limit, order: order, start: 0, sort: sort};
-/*
-    request(url, { json: true }, (err, res, body) => {
+
+    request(url, { json: true}, (err, res2, body) => {
         if (err) { return console.log(err); }
 
         res.render('pages/index', {response: body, params: params});
-    });*/
+    });
 
-    axios.get(url)
+    /*axios.get(url)
       .then(response => {
         res.render('pages/index', {response: response.data, params: params});
       })
       .catch(error => {
         console.log(error);
-      });
+      });*/
 
    // resInclude.showResult(https, url, res, params, 'pages/index', request);
 });
